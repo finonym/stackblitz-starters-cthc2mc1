@@ -1,0 +1,95 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0f; }
+
+.pitstop-root { display: flex; min-height: 100vh; background: #0d0d14; color: #e8e8f0; }
+
+/* SIDEBAR */
+.sidebar { width: 220px; background: #111118; border-right: 1px solid #1e1e2e; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; }
+.sidebar-logo { padding: 24px 20px; border-bottom: 1px solid #1e1e2e; display: flex; align-items: center; gap: 12px; }
+.logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #e63946, #ff6b35); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.logo-text { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+.logo-sub { font-size: 9px; color: #444458; letter-spacing: 2px; text-transform: uppercase; margin-top: 1px; }
+.sidebar-nav { padding: 16px 10px; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.nav-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #2a2a3a; padding: 10px 10px 4px; font-weight: 700; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; color: #555568; font-weight: 500; transition: all 0.15s; border: 1px solid transparent; }
+.nav-item:hover { background: #1a1a28; color: #e8e8f0; }
+.nav-item.active { background: rgba(230,57,70,0.12); color: #ff6b35; border-color: rgba(230,57,70,0.2); }
+.nav-badge { margin-left: auto; background: #e63946; color: white; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 10px; }
+.nav-live { margin-left: auto; font-size: 9px; color: #22c55e; font-weight: 700; letter-spacing: 1px; }
+.sidebar-footer { padding: 12px 10px; border-top: 1px solid #1e1e2e; }
+.user-pill { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; background: #1a1a28; }
+.user-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #e63946, #ff6b35); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: white; flex-shrink: 0; }
+.user-info { flex: 1; overflow: hidden; }
+.user-email { font-size: 11px; color: #888899; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.user-role { font-size: 9px; color: #333348; text-transform: uppercase; letter-spacing: 1px; margin-top: 1px; }
+.logout-btn { background: none; border: none; color: #333348; cursor: pointer; font-size: 14px; padding: 4px; transition: color 0.15s; line-height: 1; }
+.logout-btn:hover { color: #e63946; }
+
+/* MAIN */
+.main { margin-left: 220px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+.topbar { padding: 18px 28px; border-bottom: 1px solid #1e1e2e; display: flex; align-items: center; justify-content: space-between; background: #0d0d14; position: sticky; top: 0; z-index: 50; }
+.topbar-title { font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: -0.3px; }
+.topbar-right { display: flex; align-items: center; gap: 10px; }
+.fb-status { display: flex; align-items: center; gap: 7px; background: #1a1a28; border: 1px solid #1e1e2e; padding: 7px 14px; border-radius: 20px; font-size: 12px; color: #888899; }
+.fb-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.7); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.notif-btn { position: relative; background: #1a1a28; border: 1px solid #1e1e2e; border-radius: 8px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; transition: all 0.15s; }
+.notif-btn:hover { border-color: #e63946; }
+.notif-dot { position: absolute; top: -4px; right: -4px; background: #e63946; color: white; font-size: 9px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #0d0d14; }
+
+/* CONTENT */
+.content { padding: 28px; flex: 1; }
+
+/* STATS */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+.stat-card { background: #111118; border: 1px solid #1e1e2e; border-radius: 14px; padding: 20px 22px; position: relative; transition: border-color 0.2s, transform 0.2s; }
+.stat-card:hover { border-color: #2a2a3e; transform: translateY(-1px); }
+.stat-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.stat-icon-wrap { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.stat-icon-wrap.orange { background: rgba(230,57,70,0.15); }
+.stat-icon-wrap.yellow { background: rgba(245,158,11,0.15); }
+.stat-icon-wrap.blue { background: rgba(59,130,246,0.15); }
+.stat-icon-wrap.green { background: rgba(34,197,94,0.15); }
+.stat-change { font-size: 11px; font-weight: 600; color: #f59e0b; }
+.stat-change.green { color: #22c55e; }
+.stat-number { font-size: 32px; font-weight: 800; color: #ffffff; line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+.stat-label { font-size: 12px; color: #444458; font-weight: 500; }
+
+/* FB BANNER */
+.fb-banner { background: linear-gradient(135deg, #1877f2, #0a52c4); border-radius: 14px; padding: 20px 24px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.fb-banner-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 4px; }
+.fb-banner-sub { font-size: 12px; color: rgba(255,255,255,0.65); }
+.fb-connect-btn { background: white; color: #1877f2; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0; }
+.fb-connect-btn:hover { opacity: 0.9; }
+
+/* LEADS */
+.leads-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 12px; flex-wrap: wrap; }
+.leads-title { font-size: 16px; font-weight: 700; color: #ffffff; }
+.tab-group { display: flex; gap: 2px; background: #111118; border: 1px solid #1e1e2e; border-radius: 8px; padding: 3px; }
+.tab { padding: 6px 14px; border-radius: 6px; border: none; background: none; color: #444458; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.tab.active { background: #1e1e2e; color: #ffffff; }
+.leads-table-wrap { background: #111118; border: 1px solid #1e1e2e; border-radius: 14px; overflow: hidden; }
+.leads-table { width: 100%; border-collapse: collapse; }
+.leads-table th { padding: 12px 18px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #2a2a3e; border-bottom: 1px solid #1e1e2e; background: #0d0d14; }
+.leads-table td { padding: 14px 18px; font-size: 13px; color: #b8b8c8; border-bottom: 1px solid #161622; vertical-align: middle; }
+.leads-table tr:last-child td { border-bottom: none; }
+.leads-table tr:hover td { background: #13131f; }
+.lead-name { font-weight: 600; color: #ffffff; font-size: 13px; }
+.lead-email { font-size: 11px; color: #333348; margin-top: 2px; }
+.source-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(24,119,242,0.12); color: #5b9cf6; border: 1px solid rgba(24,119,242,0.2); padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.status-select { padding: 5px 10px; border-radius: 20px; border: none; font-size: 11px; font-weight: 700; cursor: pointer; outline: none; }
+.time-ago { font-size: 11px; color: #2a2a3e; }
+.empty-state { text-align: center; padding: 50px 20px; }
+.empty-icon { font-size: 40px; margin-bottom: 12px; }
+.empty-title { font-size: 14px; color: #444458; font-weight: 600; margin-bottom: 6px; }
+.empty-sub { font-size: 12px; color: #2a2a3e; }
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .content { padding: 16px; }
+  .topbar { padding: 14px 16px; }
+  .leads-table th:nth-child(4), .leads-table td:nth-child(4) { display: none; }
+}
